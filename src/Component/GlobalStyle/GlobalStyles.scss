@@ -1,0 +1,36 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500&display=swap');
+
+:root {
+    --primary: rgb(254, 44, 85);
+    --black: #000;
+    //default layout:
+    --default-layout-header-height: 60px;
+    --default-layout-width: 1150px;
+    --text-color: #333;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+input,
+button,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
+}
