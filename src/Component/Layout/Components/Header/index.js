@@ -9,14 +9,34 @@ import {
     faMagnifyingGlass,
     faPlus,
     faSignIn,
+    faKeyboard,
+    faEllipsisVertical,
+    faEarthAsia,
+    faCircleQuestion,
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react';
+import Tippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 import { Wrapper as PopperWrapper } from '~/Component/Popper';
 import AccountItem from '../../../AccountItem';
 import Button from '~/Component/Button';
+import Menu from '~/Component/Popper/PopperMenu';
 
 const cx = classNames.bind(styles);
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'English',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback And Help',
+        to: '/feedback',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard Shortcuts',
+    },
+];
 function Header() {
     const [searchReSult, setSearchReSult] = useState([]);
     useEffect(() => {
@@ -69,17 +89,20 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('actions')}>
-                    <Button text>
-                        <FontAwesomeIcon icon={faPlus} />
+                    <Button text plusIcon={<FontAwesomeIcon icon={faPlus} />}>
                         Upload
                     </Button>
                     <Button
                         primary
-                        rightIcon={<FontAwesomeIcon icon={faSignIn} />}
+                        signIcon={<FontAwesomeIcon icon={faSignIn} />}
                     >
                         Log In
                     </Button>
-                    <Button>Log In</Button>
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
