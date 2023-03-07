@@ -6,17 +6,17 @@ const cx = classNames.bind(styles);
 function Button({
     to,
     href,
+    children,
+    onClick,
     primary,
     outline,
     rounded,
     text,
     small,
     large,
-    children,
     leftIcon,
-    signIcon,
-    plusIcon,
-    onClick,
+    rightIcon,
+    className,
     ...passProps
 }) {
     let Comp = 'button';
@@ -31,19 +31,23 @@ function Button({
         props.href = href;
         Comp = 'a';
     }
-    const classes = cx('wrapper', {
-        primary,
-        outline,
-        rounded,
-        text,
-        small,
-        large,
-    });
+    const classes = cx(
+        'wrapper',
+        {
+            primary,
+            outline,
+            rounded,
+            text,
+            small,
+            large,
+        },
+        className,
+    );
     return (
         <Comp className={classes} {...props}>
-            {plusIcon && <span className={cx('plusIcon')}>{plusIcon}</span>}
+            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
             <span className={cx('title')}>{children}</span>
-            {signIcon && <span className={cx('signIcon')}>{signIcon}</span>}
+            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
         </Comp>
     );
 }

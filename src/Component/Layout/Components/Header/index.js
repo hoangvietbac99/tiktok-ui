@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -38,12 +38,12 @@ const MENU_ITEMS = [
     },
 ];
 function Header() {
-    const [searchReSult, setSearchReSult] = useState([]);
-    useEffect(() => {
-        setTimeout(() => {
-            setSearchReSult([]);
-        }, 1000);
-    });
+    // const [searchReSult, setSearchReSult] = useState([]);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setSearchReSult([]);
+    //     }, 1000);
+    // });
 
     return (
         <header className={cx('wrapper')}>
@@ -53,7 +53,7 @@ function Header() {
                 </div>
                 <Tippy
                     interactive
-                    visible={searchReSult.length > 0}
+                    visible
                     render={(attrs) => (
                         <div
                             className={cx('search-result')}
@@ -89,12 +89,12 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('actions')}>
-                    <Button text plusIcon={<FontAwesomeIcon icon={faPlus} />}>
+                    <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                         Upload
                     </Button>
                     <Button
                         primary
-                        signIcon={<FontAwesomeIcon icon={faSignIn} />}
+                        rightIcon={<FontAwesomeIcon icon={faSignIn} />}
                     >
                         Log In
                     </Button>

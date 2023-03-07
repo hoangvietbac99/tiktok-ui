@@ -6,7 +6,7 @@
     min-width: 100px;
     background-color: var(--white);
     border: 0.8px solid transparent;
-    border-color: var(--primary);
+    border-color: var(--white);
     user-select: none;
     cursor: pointer;
     + .wrapper {
@@ -64,9 +64,12 @@
     padding: 14px 16px;
 }
 //spam
-.title + .signIcon {
+.title + .icon,
+.icon + .title {
     margin-left: 4px;
 }
-.plusIcon {
-    margin-right: 4px;
+.icon {
+    display: inline-block;
+    width: 24px;
+    text-align: center;
 }
